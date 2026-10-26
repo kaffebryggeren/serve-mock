@@ -1,0 +1,1066 @@
+/* ==========================================================================
+   style.css – serve-mock (møteromsløsninger)
+   Bygget paa designtokens fra tokens.css. Mobil foerst.
+   Navngiving: BEM-lignende (.blokk__element--modifikator).
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Reset / base
+   -------------------------------------------------------------------------- */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background-color: var(--color-dark-800);
+  color: var(--color-text-invert);
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--lh-body);
+  -webkit-text-size-adjust: 100%;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+a { color: var(--color-text-invert); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: var(--font-weight-display);
+  color: var(--color-text-invert);
+}
+
+p { margin: 0 0 var(--space-sm); }
+p:last-child { margin-bottom: 0; }
+
+ul { margin: 0; padding: 0; list-style: none; }
+
+:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0);
+  white-space: nowrap; border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 200;
+  padding: 10px 18px;
+  background: var(--color-brand);
+  color: #fff;
+  font-weight: var(--font-weight-semibold);
+}
+.skip-link:focus { left: 8px; top: 8px; }
+
+/* --------------------------------------------------------------------------
+   2. Layout-hjelpere
+   -------------------------------------------------------------------------- */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-pad);
+}
+
+.section {
+  padding-block: var(--section-pad-y);
+  background-color: var(--color-dark-800);
+}
+.section--alt { background-color: var(--color-dark-900); }
+.section--tight { padding-block: calc(var(--section-pad-y) / 2); }
+
+/* Kicker + overskrift i Serves spraak: liten groenn uppercase overline + stor h2 */
+.kicker {
+  display: block;
+  margin-bottom: var(--space-xs);
+  font-family: var(--font-display);
+  font-size: var(--fs-h6);
+  line-height: var(--lh-h6);
+  font-weight: var(--font-weight-display);
+  text-transform: var(--text-transform-kicker);
+  letter-spacing: var(--ls-kicker);
+  color: var(--color-brand);
+}
+
+.section__title {
+  font-size: var(--fs-h2);
+  line-height: var(--lh-h2);
+  margin-bottom: var(--space-sm);
+}
+
+.section__intro {
+  max-width: 62ch;
+  margin-bottom: var(--space-lg);
+  color: rgba(255, 255, 255, 0.86); /* [DESIGN-ANTAGELSE] 0.86 for bedre lesbarhet i lange avsnitt */
+}
+
+.section__head--center { text-align: center; }
+.section__head--center .section__intro { margin-inline: auto; }
+
+/* --------------------------------------------------------------------------
+   3. Knapper
+   -------------------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: var(--btn-padding);
+  font-family: var(--font-body);
+  font-size: var(--btn-font-size);
+  line-height: var(--btn-line-height);
+  font-weight: var(--font-weight-regular);
+  color: var(--btn-color);
+  background-color: var(--btn-bg);
+  border: var(--btn-border-width) solid var(--btn-border-color);
+  border-radius: var(--btn-radius);
+  cursor: pointer;
+  text-align: center;
+  transition: background-color var(--transition), color var(--transition), border-color var(--transition);
+}
+.btn:hover,
+.btn:active {
+  background-color: var(--btn-bg-hover);
+  color: #fff;
+  text-decoration: none;
+}
+.btn--solid {
+  background-color: var(--btn-solid-bg);
+  border-color: var(--btn-solid-bg);
+  color: var(--btn-solid-color);
+}
+.btn--solid:hover,
+.btn--solid:active {
+  background-color: var(--btn-solid-bg-hover);
+  border-color: var(--btn-solid-bg-hover);
+}
+.btn--block { width: 100%; }
+.btn--lg { padding: 12px 34px; font-size: 18px; }
+
+/* Tekstlenke (sekundaer handling ved siden av knapp) */
+.link-quiet {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--fs-regular);
+  color: var(--color-text-invert);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.link-quiet:hover { color: var(--color-brand); }
+
+/* --------------------------------------------------------------------------
+   4. MOCK-stripe (skrus av/på med M)
+   -------------------------------------------------------------------------- */
+.mockbar {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 120;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 7px 14px;
+  background: #111;
+  color: #ffd166;
+  border-bottom: 1px solid #ffd166;
+  font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  font-size: 12px;
+  line-height: 16px;
+  text-align: center;
+}
+.mockbar kbd {
+  padding: 1px 5px;
+  border: 1px solid #ffd166;
+  border-radius: 3px;
+  font-size: 11px;
+}
+.mockbar[hidden] { display: none; }
+body.is-mockbar-on { padding-top: 32px; }
+body.is-mockbar-on .site-header { top: 32px; }
+
+/* --------------------------------------------------------------------------
+   5. Header (Server-stil, forenklet: logo + telefon + CTA)
+   -------------------------------------------------------------------------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--color-dark-800);
+  box-shadow: var(--shadow-header);
+}
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  min-height: 76px;
+}
+.site-header__logo { display: block; line-height: 0; }
+.site-header__logo img,
+.site-header__logo svg { width: 150px; height: auto; }
+
+.site-header__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+.site-header__phone {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: var(--fs-regular);
+  white-space: nowrap;
+}
+.site-header__phone:hover { color: var(--color-brand); text-decoration: none; }
+.site-header__phone svg { flex: 0 0 auto; }
+.site-header__cta { display: none; }
+
+/* --------------------------------------------------------------------------
+   6. Hero
+   -------------------------------------------------------------------------- */
+.hero {
+  position: relative;
+  padding-block: var(--section-pad-y-lg);
+  /* Samme bakgrunnsbilde + moerk overlegg som originalens .bg-overlay */
+  background-color: var(--color-dark-800);
+  background-image:
+    linear-gradient(rgba(28, 60, 50, 0.92), rgba(28, 60, 50, 0.92)),
+    url("../img/moterom-hero.jpg");
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+.hero__inner { max-width: 720px; }
+
+.hero__title {
+  font-size: var(--fs-h1);
+  line-height: var(--lh-h1);
+  margin-bottom: var(--space-sm);
+}
+.hero__lead {
+  max-width: 56ch;
+  margin-bottom: var(--space-md);
+  font-size: 19px;
+  line-height: 28px;
+  color: rgba(255, 255, 255, 0.9); /* [DESIGN-ANTAGELSE] */
+}
+
+.hero__list {
+  margin-bottom: var(--space-md);
+  display: grid;
+  gap: 10px;
+}
+.hero__list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: var(--fs-regular);
+}
+.hero__list svg { flex: 0 0 auto; margin-top: 4px; }
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-sm) var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+.hero__proof {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 22px;
+  margin: 0;
+  padding-top: var(--space-md);
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.82); /* [DESIGN-ANTAGELSE] */
+}
+.hero__proof li { display: flex; align-items: center; gap: 8px; }
+
+/* --------------------------------------------------------------------------
+   7. Problem -> loesning
+   -------------------------------------------------------------------------- */
+.problems__grid {
+  display: grid;
+  gap: var(--space-md);
+}
+.card-problem {
+  padding: var(--space-md);
+  background-color: var(--color-dark-900);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-card);
+  border-top: 3px solid rgba(255, 255, 255, 0.22);
+}
+.card-problem__icon {
+  display: inline-flex;
+  margin-bottom: 14px;
+  color: var(--color-brand);
+}
+.card-problem__title {
+  font-size: var(--fs-h4);
+  line-height: var(--lh-h4);
+  margin-bottom: 8px;
+}
+.card-problem__text {
+  margin: 0;
+  font-size: var(--fs-regular);
+  color: rgba(255, 255, 255, 0.86);
+}
+
+/* --------------------------------------------------------------------------
+   8. Pakker / romtyper
+   -------------------------------------------------------------------------- */
+.packages__grid {
+  display: grid;
+  gap: var(--space-md);
+}
+.package {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-md);
+  background-color: var(--color-dark-900);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-card);
+  transition: box-shadow var(--transition), transform var(--transition);
+}
+.package:hover { box-shadow: var(--shadow-card-hover); }
+.package--featured {
+  border: 2px solid var(--color-brand);
+  box-shadow: var(--shadow-card);
+}
+.package__badge {
+  position: absolute;
+  top: -14px;
+  left: var(--space-md);
+  padding: 3px 14px;
+  background: var(--color-brand);
+  color: #fff;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-display);
+  font-weight: var(--font-weight-display);
+  font-size: 14px;
+  line-height: 22px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+.package__name {
+  font-size: var(--fs-h4);
+  line-height: var(--lh-h4);
+  margin-bottom: 4px;
+}
+.package__meta {
+  margin-bottom: var(--space-sm);
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.72);
+}
+.package__list {
+  display: grid;
+  gap: 10px;
+  margin-bottom: var(--space-md);
+  font-size: var(--fs-regular);
+}
+.package__list li { display: flex; gap: 10px; align-items: flex-start; }
+.package__list svg { flex: 0 0 auto; margin-top: 4px; }
+
+.package__price {
+  margin: auto 0 var(--space-sm);
+  padding-top: var(--space-sm);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.8);
+}
+.package__price strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 22px;
+  color: #fff;
+}
+
+/* --------------------------------------------------------------------------
+   9. Slik fungerer det
+   -------------------------------------------------------------------------- */
+.steps {
+  display: grid;
+  gap: var(--space-md);
+  counter-reset: step;
+}
+.step {
+  position: relative;
+  padding-left: 62px;
+}
+.step::before {
+  counter-increment: step;
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border: 2px solid var(--color-brand);
+  border-radius: 50%;
+  color: var(--color-brand);
+  font-family: var(--font-display);
+  font-weight: var(--font-weight-display);
+  font-size: 20px;
+}
+.step__title {
+  font-size: var(--fs-h4);
+  line-height: var(--lh-h4);
+  margin-bottom: 6px;
+}
+.step__text {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.86);
+  font-size: var(--fs-regular);
+}
+
+/* --------------------------------------------------------------------------
+   10. Booking / Doorsign
+   -------------------------------------------------------------------------- */
+.split {
+  display: grid;
+  gap: var(--space-lg);
+  align-items: center;
+}
+.split__media img {
+  width: 100%;
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+}
+.split__body .btn { margin-top: var(--space-sm); }
+
+/* --------------------------------------------------------------------------
+   11. Bevis / referanser
+   -------------------------------------------------------------------------- */
+.quote {
+  margin: 0 0 var(--space-lg);
+  padding: var(--space-lg);
+  background-color: var(--color-dark-900);
+  border-left: 4px solid var(--color-brand);
+  border-radius: var(--radius-card);
+}
+.quote blockquote {
+  margin: 0 0 var(--space-sm);
+  font-family: var(--font-display);
+  font-weight: var(--font-weight-display);
+  font-size: 24px;
+  line-height: 34px;
+  quotes: "«" "»";
+}
+.quote blockquote::before { content: open-quote; }
+.quote blockquote::after { content: close-quote; }
+.quote figcaption { font-size: 15px; color: rgba(255, 255, 255, 0.76); }
+
+.refs__grid { display: grid; gap: var(--space-md); }
+.ref {
+  padding: var(--space-md);
+  background-color: var(--color-dark-900);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-card);
+}
+.ref__date {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
+  color: var(--color-brand);
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+.ref__title {
+  font-size: var(--fs-h4);
+  line-height: var(--lh-h4);
+  margin-bottom: 6px;
+}
+.ref__text { margin: 0; font-size: var(--fs-regular); color: rgba(255, 255, 255, 0.86); }
+
+.canon {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-top: var(--space-lg);
+  padding: var(--space-md);
+  background-color: var(--color-dark-900);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-card);
+}
+.canon img { width: 110px; height: auto; flex: 0 0 auto; }
+.canon p { margin: 0; font-size: var(--fs-regular); }
+
+/* --------------------------------------------------------------------------
+   12. FAQ (trekkspill)
+   -------------------------------------------------------------------------- */
+.faq { max-width: 860px; margin-inline: auto; }
+.faq__item {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+.faq__item:first-child { border-top: 1px solid rgba(255, 255, 255, 0.14); }
+.faq__q {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  width: 100%;
+  padding: 20px 0;
+  background: none;
+  border: 0;
+  color: #fff;
+  font-family: var(--font-display);
+  font-weight: var(--font-weight-display);
+  font-size: 20px;
+  line-height: 28px;
+  text-align: left;
+  cursor: pointer;
+}
+.faq__q:hover { color: var(--color-brand); }
+.faq__q-icon {
+  flex: 0 0 auto;
+  transition: transform var(--transition);
+}
+.faq__q[aria-expanded="true"] .faq__q-icon { transform: rotate(45deg); }
+.faq__a {
+  padding: 0 0 20px;
+  max-width: 70ch;
+  color: rgba(255, 255, 255, 0.86);
+}
+.faq__a[hidden] { display: none; }
+.faq__a p { margin: 0; }
+
+/* --------------------------------------------------------------------------
+   13. Avsluttende CTA + skjema
+   -------------------------------------------------------------------------- */
+.cta-final {
+  background-color: var(--color-dark-900);
+}
+.cta-final__grid { display: grid; gap: var(--space-lg); }
+.cta-final__points {
+  display: grid;
+  gap: 10px;
+  margin-top: var(--space-md);
+  font-size: var(--fs-regular);
+}
+.cta-final__points li { display: flex; gap: 10px; align-items: flex-start; }
+.cta-final__points svg { flex: 0 0 auto; margin-top: 4px; }
+
+.form { display: grid; gap: var(--space-sm); }
+.form__row { display: grid; gap: var(--space-sm); }
+.form__field { display: grid; gap: 6px; }
+.form__label {
+  font-size: var(--fs-small);
+  color: #fff;
+}
+.form__req { color: var(--color-brand); }
+
+.form__input,
+.form__select,
+.form__textarea {
+  width: 100%;
+  padding: var(--input-padding) 12px;
+  min-height: var(--input-height);
+  background-color: var(--input-bg);
+  color: var(--input-color);
+  border: var(--input-border);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: var(--input-font-size);
+  line-height: var(--input-line-height);
+}
+.form__textarea { min-height: 120px; resize: vertical; }
+.form__input::placeholder,
+.form__textarea::placeholder { color: var(--color-input-placeholder); }
+.form__input:hover,
+.form__select:hover,
+.form__textarea:hover { border-color: #3f6a5d; }
+.form__input:focus,
+.form__select:focus,
+.form__textarea:focus { border-color: var(--color-brand); outline: none; }
+.form__input[aria-invalid="true"],
+.form__select[aria-invalid="true"],
+.form__textarea[aria-invalid="true"] { border-color: var(--color-danger); }
+
+.form__fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.form__legend {
+  padding: 0;
+  margin-bottom: 6px;
+  font-size: var(--fs-small);
+  color: #fff;
+}
+.form__choices { display: flex; flex-wrap: wrap; gap: 8px 18px; }
+.form__choice {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--fs-small);
+  cursor: pointer;
+}
+.form__choice input { accent-color: var(--color-brand); width: 18px; height: 18px; }
+
+.form__consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 15px;
+  line-height: 22px;
+  color: rgba(255, 255, 255, 0.86);
+}
+.form__consent input { margin-top: 3px; accent-color: var(--color-brand); width: 18px; height: 18px; flex: 0 0 auto; }
+
+.form__error {
+  min-height: 20px;
+  margin: 0;
+  font-size: 14px;
+  color: var(--color-danger);
+}
+.form__note {
+  margin: 0;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.form-success {
+  padding: var(--space-md);
+  background-color: rgba(0, 180, 75, 0.12);
+  border: 2px solid var(--color-brand);
+  border-radius: var(--radius-card);
+}
+.form-success h3 {
+  font-size: var(--fs-h4);
+  line-height: var(--lh-h4);
+  margin-bottom: 8px;
+}
+.form-success p { margin: 0; }
+.form-success[hidden] { display: none; }
+
+/* --------------------------------------------------------------------------
+   14. Footer
+   -------------------------------------------------------------------------- */
+.site-footer {
+  background-color: var(--color-dark-900);
+  padding-block: var(--space-xl) var(--space-lg);
+  font-size: var(--fs-regular);
+}
+.site-footer a:hover { color: var(--color-brand); }
+.site-footer__grid { display: grid; gap: var(--space-lg); }
+.site-footer__logo { width: 160px; height: auto; margin-bottom: var(--space-sm); }
+.site-footer__heading {
+  font-family: var(--font-display);
+  font-weight: var(--font-weight-display);
+  font-size: 18px;
+  line-height: 26px;
+  margin-bottom: 12px;
+  color: #fff;
+}
+.site-footer__list { display: grid; gap: 10px; }
+.site-footer__list a { display: inline-flex; gap: 9px; align-items: flex-start; }
+.site-footer__list svg { flex: 0 0 auto; margin-top: 4px; color: var(--color-brand); }
+.site-footer__social { display: flex; gap: 14px; }
+.site-footer__social img { width: 26px; height: 26px; }
+.site-footer__bottom {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px var(--space-md);
+  align-items: center;
+  justify-content: space-between;
+  margin-top: var(--space-lg);
+  padding-top: var(--space-md);
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.72);
+}
+.site-footer__bottom ul { display: flex; flex-wrap: wrap; gap: 8px 18px; }
+
+/* --------------------------------------------------------------------------
+   15. Sticky mobil-CTA
+   -------------------------------------------------------------------------- */
+.mobile-cta {
+  position: fixed;
+  inset: auto 0 0 0;
+  z-index: 110;
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 10px;
+  padding: 10px 14px calc(10px + env(safe-area-inset-bottom, 0px));
+  background-color: rgba(25, 47, 40, 0.97);
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(6px);
+}
+
+/* --------------------------------------------------------------------------
+   16. Hjelpeklasse for A/B-bytte (JS legger inn [data-ab])
+   -------------------------------------------------------------------------- */
+[data-ab-hidden="true"] { display: none !important; }
+
+/* --------------------------------------------------------------------------
+   17. Responsivt – >= 768px
+   -------------------------------------------------------------------------- */
+@media (min-width: 768px) {
+  .site-header__logo img,
+  .site-header__logo svg { width: 160px; }
+  .site-header__inner { min-height: var(--header-height); }
+  .site-header__cta { display: inline-flex; }
+
+  .problems__grid { grid-template-columns: repeat(3, 1fr); }
+  .packages__grid { grid-template-columns: repeat(3, 1fr); align-items: stretch; }
+  .steps { grid-template-columns: repeat(2, 1fr); gap: var(--space-lg) var(--space-md); }
+  .refs__grid { grid-template-columns: repeat(2, 1fr); }
+  .form__row--2 { grid-template-columns: repeat(2, 1fr); }
+  .canon { gap: var(--space-md); }
+}
+
+/* --------------------------------------------------------------------------
+   18. Responsivt – >= 992px
+   -------------------------------------------------------------------------- */
+@media (min-width: 992px) {
+  .section__title { max-width: 24ch; }
+  .split { grid-template-columns: 1.05fr 1fr; gap: var(--space-xl); }
+  .split--reverse .split__media { order: 2; }
+  .cta-final__grid { grid-template-columns: 1fr 1fr; gap: var(--space-xl); align-items: start; }
+  .steps { grid-template-columns: repeat(4, 1fr); }
+  .site-footer__grid { grid-template-columns: 1.3fr 1fr 1fr 1fr; }
+  .hero { padding-block: 120px; }
+  .hero__title { font-size: 64px; line-height: 74px; }
+}
+
+/* --------------------------------------------------------------------------
+   19. Mobil-CTA vises kun < 768px
+   -------------------------------------------------------------------------- */
+@media (min-width: 768px) {
+  .mobile-cta { display: none; }
+}
+@media (max-width: 767px) {
+  body { padding-bottom: 76px; }
+  body.is-mockbar-on { padding-top: 46px; }
+  .mockbar { font-size: 11px; line-height: 15px; }
+}
+
+/* ==========================================================================
+   DEL 2 – komponenter for digital signage-siden + oversiktssiden
+   Alle bygger på de samme designtokens fra tokens.css (Serve-designet).
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   20. Felles småelementer (kbd, «til oversikt», «se også»)
+   -------------------------------------------------------------------------- */
+kbd {
+  padding: 1px 6px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 3px;
+  font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  font-size: 13px;
+}
+
+/* Liten lenke tilbake til mock-oversikten (ligger øverst i hero) */
+.page-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: var(--space-md);
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.85);
+}
+.page-back:hover { color: var(--color-brand); text-decoration: none; }
+.page-back svg { flex: 0 0 auto; }
+
+/* «Se også»-krysslenke mellom mocksidene */
+.also-link {
+  margin: var(--space-sm) 0 0;
+  font-size: var(--fs-regular);
+  color: rgba(255, 255, 255, 0.8);
+}
+.also-link a {
+  color: var(--color-brand);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* --------------------------------------------------------------------------
+   21. Hero-varianter (signage + oversikt)
+   -------------------------------------------------------------------------- */
+.hero--signage {
+  background-image:
+    linear-gradient(rgba(28, 60, 50, 0.90), rgba(28, 60, 50, 0.90)),
+    url("../img/signage-hero.png");
+}
+.hero--overview {
+  padding-block: var(--section-pad-y-lg) var(--section-pad-y);
+  background-image:
+    linear-gradient(rgba(28, 60, 50, 0.94), rgba(28, 60, 50, 0.94)),
+    url("../img/moterom-hero.jpg");
+}
+
+/* --------------------------------------------------------------------------
+   22. «Hvor skal skjermene stå?» – klikkbare kort
+   Hvert kort scroller til #tilbud og forhåndsvelger plassering i skjemaet.
+   -------------------------------------------------------------------------- */
+.places__grid {
+  display: grid;
+  gap: var(--space-md);
+}
+.card-place {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-md);
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: var(--radius-card);
+  color: var(--color-text-invert);
+  transition: background-color var(--transition), border-color var(--transition), transform var(--transition);
+}
+.card-place:hover,
+.card-place:focus-visible {
+  background-color: rgba(0, 180, 75, 0.12);
+  border-color: var(--color-brand);
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+.card-place__icon {
+  display: inline-flex;
+  margin-bottom: 12px;
+  color: var(--color-brand);
+}
+.card-place__title {
+  font-size: var(--fs-h4);
+  line-height: var(--lh-h4);
+  margin-bottom: 6px;
+}
+.card-place__text {
+  margin: 0 0 var(--space-sm);
+  font-size: var(--fs-regular);
+  color: rgba(255, 255, 255, 0.86);
+}
+/* Pilen ligger nederst i kortet og gjør det tydelig at kortet er klikkbart */
+.card-place__more {
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  color: var(--color-brand);
+}
+.card-place__more::after {
+  content: "→";
+  transition: transform var(--transition);
+}
+.card-place:hover .card-place__more::after { transform: translateX(4px); }
+
+/* Linjen under pakkene («Dette er inkludert: …») */
+.packages__note {
+  margin: var(--space-md) 0 0;
+  text-align: center;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+/* --------------------------------------------------------------------------
+   23. Sammenligningstabell (PLAYipp / DataBeat)
+   -------------------------------------------------------------------------- */
+.compare-wrap {
+  max-width: 900px;
+  margin-inline: auto;
+  overflow-x: auto;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: var(--radius-card);
+}
+.compare {
+  width: 100%;
+  min-width: 560px;
+  border-collapse: collapse;
+  font-size: var(--fs-regular);
+}
+.compare th,
+.compare td {
+  padding: 16px 18px;
+  text-align: left;
+  vertical-align: top;
+}
+.compare thead th {
+  background-color: rgba(255, 255, 255, 0.07);
+  font-family: var(--font-display);
+  font-weight: var(--font-weight-display);
+  font-size: 18px;
+  line-height: 26px;
+  color: #fff;
+}
+.compare thead th:first-child { width: 26%; }
+.compare tbody th {
+  width: 26%;
+  font-family: var(--font-body);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--fs-small);
+  color: var(--color-brand);
+}
+.compare tbody td { color: rgba(255, 255, 255, 0.88); }
+.compare tbody tr + tr th,
+.compare tbody tr + tr td { border-top: 1px solid rgba(255, 255, 255, 0.1); }
+
+.compare-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  align-items: center;
+  justify-content: space-between;
+  max-width: 900px;
+  margin: var(--space-lg) auto 0;
+  padding: var(--space-md);
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-card);
+}
+.compare-cta p { margin: 0; max-width: 52ch; }
+
+/* --------------------------------------------------------------------------
+   24. LED-seksjon
+   -------------------------------------------------------------------------- */
+.led__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 var(--space-sm);
+}
+.led__list li {
+  padding: 4px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: var(--radius-pill);
+  font-size: 15px;
+}
+.led__note {
+  margin: 0 0 var(--space-sm);
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+/* --------------------------------------------------------------------------
+   25. Plassholder-kort i bevis-seksjonen
+   -------------------------------------------------------------------------- */
+.refs__grid--placeholders { margin-top: var(--space-md); }
+.ref--placeholder {
+  background-color: transparent;
+  border-style: dashed;
+  border-color: rgba(255, 255, 255, 0.26);
+}
+.ref--placeholder .ref__date { color: rgba(255, 255, 255, 0.6); }
+.ref--placeholder .ref__title { color: rgba(255, 255, 255, 0.72); }
+
+/* --------------------------------------------------------------------------
+   26. Oversiktssiden – to store kort
+   -------------------------------------------------------------------------- */
+.home__grid {
+  display: grid;
+  gap: var(--space-lg);
+}
+.home-card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-dark-900);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  transition: box-shadow var(--transition);
+}
+.home-card:hover { box-shadow: var(--shadow-card-hover); }
+.home-card__media {
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background-color: var(--color-dark-700);
+}
+.home-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.home-card__body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: var(--space-md);
+}
+.home-card__title {
+  font-size: var(--fs-h3);
+  line-height: var(--lh-h3);
+  margin-bottom: 8px;
+}
+.home-card__text {
+  color: rgba(255, 255, 255, 0.86);
+}
+.home-card__list {
+  display: grid;
+  gap: 8px;
+  margin: var(--space-sm) 0 var(--space-md);
+  font-size: var(--fs-regular);
+  color: rgba(255, 255, 255, 0.86);
+}
+.home-card__list li { padding-left: 22px; position: relative; }
+.home-card__list li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: var(--color-brand);
+}
+.home-card__body .btn { margin-top: auto; }
+
+.home__note {
+  margin: var(--space-lg) 0 0;
+  text-align: center;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.72);
+}
+.home__note code {
+  font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  font-size: 14px;
+}
+
+/* --------------------------------------------------------------------------
+   27. Markering når skjemafelt er forhåndsvalgt fra et kort
+   -------------------------------------------------------------------------- */
+.form__select.is-preset,
+.form__input.is-preset {
+  border-color: var(--color-brand);
+  box-shadow: 0 0 0 3px rgba(0, 180, 75, 0.35);
+}
+
+/* --------------------------------------------------------------------------
+   28. Responsivt for nye komponenter
+   -------------------------------------------------------------------------- */
+@media (min-width: 768px) {
+  .places__grid { grid-template-columns: repeat(2, 1fr); }
+  .home__grid { grid-template-columns: repeat(2, 1fr); align-items: stretch; }
+}
+@media (min-width: 992px) {
+  .places__grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (min-width: 1200px) {
+  .places__grid { grid-template-columns: repeat(5, 1fr); }
+}
+
+/* --------------------------------------------------------------------------
+   29. Redusert bevegelse
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+}

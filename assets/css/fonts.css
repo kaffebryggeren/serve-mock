@@ -1,0 +1,38 @@
+/* ==========================================================================
+   fonts.css – lokale fonter slik at mocken kjorer helt offline.
+   Kildefiler hentet (read-only GET) 2026-10-26:
+     - dico-sans:  Adobe Typekit, kit ism3gmz (samme kit som serve.no bruker)
+     - Public Sans: Google Fonts v21 (latin-subset, samme fil som serve.no laster)
+   ========================================================================== */
+
+/* --- dico-sans (overskrifter). Typekit-kitet leverer kun vekt 700 + 700 italic --- */
+@font-face {
+  font-family: "dico-sans";
+  src: url("../fonts/dico-sans-700.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "dico-sans";
+  src: url("../fonts/dico-sans-700i.woff2") format("woff2");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* --- Public Sans (broedtekst). Variabel font: én fil dekker 400/500/600 --- */
+@font-face {
+  font-family: "Public Sans";
+  src: url("../fonts/public-sans-latin.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Public Sans";
+  src: url("../fonts/public-sans-latin-italic.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}

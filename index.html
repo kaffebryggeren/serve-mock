@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="nb-NO">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Serve-mock – oversikt [MOCK]</title>
+  <meta name="description" content="Intern oversikt over mock-sidene for Serve AS: møteromsløsninger og digital signage.">
+  <meta name="robots" content="noindex, nofollow">
+
+  <!-- Lokale assets – ingen eksterne tjenester, ingen tracking -->
+  <link rel="icon" href="assets/img/favicon.png" type="image/png">
+  <link rel="stylesheet" href="assets/css/fonts.css">
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Hopp til innhold</a>
+
+<!-- NYTT: MOCK-stripe. Skrus av/på med tast M. Vises ikke på en publisert side. -->
+<div class="mockbar" id="mockbar" role="status">
+  <span>MOCK – ikke publisert. Plassholdere i [klammer]</span>
+  <span><kbd>M</kbd> skjul/vis stripe</span>
+</div>
+
+<!-- ==========================================================================
+     HEADER – samme stil som de to mocksidene
+     ========================================================================== -->
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="site-header__logo" href="#top" aria-label="Serve AS – til toppen">
+      <img src="assets/img/serve-logo.svg" width="194" height="62" alt="Serve AS">
+    </a>
+
+    <div class="site-header__actions">
+      <a class="site-header__phone" href="tel:+4732211910">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/>
+        </svg>
+        <span>32 21 19 10</span>
+      </a>
+
+      <a class="btn btn--solid site-header__cta" href="#sider">Se sidene</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ========================================================================
+     HERO – kort intro til mocken
+     ======================================================================== -->
+  <section class="hero hero--overview" id="top">
+    <div class="container hero__inner">
+      <p class="kicker">Intern mock · serve.no</p>
+      <h1 class="hero__title">To sider klare for gjennomgang</h1>
+      <p class="hero__lead">Samme design som serve.no, men bygget for høyere konvertering. Alt kjører lokalt og sender ingen data.</p>
+
+      <ul class="hero__proof">
+        <li>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00b44b" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5l-8-3Z"/></svg>
+          Ingen publisering – kun localhost
+        </li>
+        <li>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00b44b" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5l-8-3Z"/></svg>
+          Skjema sender ingen data
+        </li>
+        <li>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00b44b" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5l-8-3Z"/></svg>
+          <kbd>M</kbd> og <kbd>B</kbd> fungerer på begge sider
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+     NYTT: TO STORE KORT SOM LENKER TIL HVER MOCK
+     ======================================================================== -->
+  <section class="section" id="sider">
+    <div class="container">
+      <div class="home__grid">
+
+        <article class="home-card">
+          <div class="home-card__media">
+            <img src="assets/img/moterom-hero.jpg" width="1030" height="771" loading="lazy" alt="Møterom med videokonferanseutstyr og skjerm">
+          </div>
+          <div class="home-card__body">
+            <p class="kicker">Side 1</p>
+            <h2 class="home-card__title">Møteromsløsninger</h2>
+            <p class="home-card__text">Bilde, lyd, video og møteromsbooking. Tre pakker og en gratis møteroms-sjekk som neste steg.</p>
+            <ul class="home-card__list">
+              <li>Problem, pakker og prosess</li>
+              <li>Databeat Doorsign og booking</li>
+              <li>Bevis, FAQ og kort skjema</li>
+            </ul>
+            <a class="btn btn--solid btn--block" href="moterom.html">Åpne møteromsmocken</a>
+          </div>
+        </article>
+
+        <article class="home-card">
+          <div class="home-card__media">
+            <img src="assets/img/signage-miljo.jpg" width="1500" height="1070" loading="lazy" alt="Skjermløsning i et moderne lokale">
+          </div>
+          <div class="home-card__body">
+            <p class="kicker">Side 2</p>
+            <h2 class="home-card__title">Digital signage</h2>
+            <p class="home-card__text">Infoskjermer, reklameskjermer og digital skilting – med PLAYipp, DataBeat Signage og LED.</p>
+            <ul class="home-card__list">
+              <li>Klikkbare steder som forhåndsvelger skjemaet</li>
+              <li>Sammenligning av PLAYipp og DataBeat</li>
+              <li>Egen LED-seksjon og eget LED-tilbud</li>
+            </ul>
+            <a class="btn btn--solid btn--block" href="signage.html">Åpne signage-mocken</a>
+          </div>
+        </article>
+
+      </div>
+
+      <p class="home__note">Begge sider har <strong>mock-stripe</strong> (tast <kbd>M</kbd>) og <strong>A/B-bryter</strong> (tast <kbd>B</kbd>). Se <code>README.md</code> for plassholdere og hva som avviker fra Serves originaldesign.</p>
+    </div>
+  </section>
+
+</main>
+
+<!-- ==========================================================================
+     FOOTER – full kontaktinfo
+     ========================================================================== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__grid">
+      <div>
+        <img class="site-footer__logo" src="assets/img/serve-logo.svg" width="194" height="62" loading="lazy" alt="Serve AS">
+        <p>Møteromsløsninger, printere og skannere, dokumenthåndtering og digital signage.</p>
+      </div>
+
+      <div>
+        <h2 class="site-footer__heading">Kontakt</h2>
+        <ul class="site-footer__list">
+          <li>
+            <a href="mailto:post@serve.no">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2 6 12 13 22 6"/></svg>
+              post@serve.no
+            </a>
+          </li>
+          <li>
+            <a href="tel:+4732211910">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
+              +47 32 21 19 10
+            </a>
+          </li>
+          <li>
+            <a href="https://goo.gl/maps/H6isEwBNqAuNQVLY8" target="_blank" rel="noopener noreferrer">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              Teglverksveien 59, 3057 Solbergelva
+            </a>
+          </li>
+          <li>
+            <span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 16 14"/></svg>
+              Support: hverdager 08.00–16.00
+            </span>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="site-footer__heading">Mocksider</h2>
+        <ul class="site-footer__list">
+          <li><a href="moterom.html">Møteromsløsninger</a></li>
+          <li><a href="signage.html">Digital signage</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="site-footer__heading">Support og kontakt</h2>
+        <ul class="site-footer__list">
+          <li><a href="https://serve.no/support/" target="_blank" rel="noopener noreferrer">Serviceportal og support</a></li>
+          <li><a href="tel:+4732211910">Ring 32 21 19 10</a></li>
+          <li><a href="mailto:post@serve.no">Send e-post</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="site-footer__bottom">
+      <p>© Serve AS · Teglverksveien 59, 3057 Solbergelva</p>
+      <ul>
+        <li><a href="https://serve.no/personvern/">Personvern</a></li>
+        <li><span>[PLASSHOLDER: org.nr]</span></li>
+        <li><span>Mock laget for internt møte</span></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

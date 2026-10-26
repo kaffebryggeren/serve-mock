@@ -1,0 +1,174 @@
+/* ==========================================================================
+   tokens.css – designtokens for serve-mock
+   --------------------------------------------------------------------------
+   Alle verdier er hentet fra serve.no (read-only GET) 2026-10-26:
+     - /wp-content/themes/nyg-enfold-child/css/base.css   (:root-variabler)
+     - /wp-content/uploads/dynamic_avia/nyg.css           (fargeskjema)
+     - /wp-content/uploads/avia_posts_css/post-385.css    (side/spesifikke farger)
+     - computed styles fra headless Chrome paa /losninger/moteromslosninger/
+   Kommentaren bak hver verdi viser hvor den kommer fra.
+   ========================================================================== */
+
+:root {
+  /* ---------- Farger: merkevare (hentet fra logo-SVG + dynamic_avia/nyg.css) --- */
+  --color-brand:            #00b44b; /* Serve-groenn. Logo + knappekant */
+  --color-brand-hover:      #00a344; /* [DESIGN-ANTAGELSE] moerkere variant av #00b44b til hover */
+  --color-brand-on:         #ffffff; /* tekst oppaa brand-farge */
+
+  /* ---------- Farger: moerke seksjoner (post-385.css) ------------------------ */
+  --color-dark-900:         #192f28; /* .footer-section / .socket-section / moerke kolonner */
+  --color-dark-800:         #1c3c32; /* hovedseksjon-bakgrunn (avia-section) */
+  --color-dark-700:         #0d3d31; /* input-bakgrunn (nyg.css: .newsletter-wrapp) */
+
+  /* ---------- Farger: sekundaer/oliven (dynamic_avia/nyg.css alternate_color) */
+  --color-olive:            #719430;
+  --color-olive-light:      #8bba34;
+  --color-olive-dark:       #507210;
+
+  /* ---------- Farger: noytrale ------------------------------------------------- */
+  --color-surface:          #ffffff;
+  --color-surface-alt:      #f8f8f8; /* dynamic.css: .main_color tema-bakgrunn */
+  --color-text:             #444444; /* body color paa lys bakgrunn */
+  --color-text-invert:      #ffffff; /* body color paa moerk bakgrunn */
+  --color-text-muted:       #969696; /* sub_menu-lenker / meta */
+  --color-text-soft:        #dddddd;
+  --color-link:             #00b44b; /* [DESIGN-ANTAGELSE] lenker bruker brand-fargen */
+  --color-border:           #ebebeb; /* dynamic.css: border-color basis */
+  --color-border-strong:    #dddddd;
+  --color-input-placeholder:#969696;
+  --color-danger:           #ff7f56; /* nyg.css: valideringsfeil */
+  --color-focus:            #00b44b; /* [DESIGN-ANTAGELSE] synlig fokusring i brand-fargen */
+
+  /* ---------- Typografi: fonter ----------------------------------------------- */
+  /* base.css: @import Public Sans (Google Fonts) + dico-sans (Adobe Typekit ism3gmz) */
+  --font-display:           "dico-sans", "Public Sans", sans-serif; /* overskrifter */
+  --font-body:              "Public Sans", sans-serif;              /* broedtekst */
+  --font-weight-display:    700;  /* Typekit-fila har kun vekt 700 (n7/i7) */
+  --font-weight-regular:    400;
+  --font-weight-medium:     500;
+  --font-weight-semibold:   600;
+
+  /* ---------- Typografi: stoerrelsesskala (base.css :root, desktop >=992px) --- */
+  --fs-h1:                  60px;  --lh-h1: 75px;
+  --fs-h2:                  50px;  --lh-h2: 60px;
+  --fs-h3:                  40px;  --lh-h3: 45px;
+  --fs-h4:                  25px;  --lh-h4: 30px;
+  --fs-h6:                  20px;  --lh-h6: 25px; /* brukes som "kicker"/overline */
+  --fs-regular:             17px;  --lh-regular: 22px;
+  --fs-small:               17px;  --lh-small: 22px;
+
+  /* Fra computed styles paa originalsiden */
+  --fs-body:                17px;
+  --lh-body:                28.05px; /* 1.65 – Enfolds body line-height */
+  --ls-kicker:              normal;
+
+  /* ---------- Typografi: helper ---------------------------------------------- */
+  --text-transform-kicker:  uppercase;
+
+  /* ---------- Avstander ------------------------------------------------------- */
+  --spacing:                20px;  /* base.css --spacing */
+  --spacing-2x:             calc(var(--spacing) * 2); /* 40px */
+  --spacing-3x:             calc(var(--spacing) * 3); /* 60px */
+  --space-xs:               8px;
+  --space-sm:               16px;
+  --space-md:               24px;
+  --space-lg:               40px;
+  --space-xl:               60px;
+  --space-2xl:              80px;
+
+  /* Fra computed styles: seksjonspadding paa originalsiden */
+  --section-pad-y:          70px;
+  --section-pad-y-lg:       100px;
+
+  /* ---------- Layout ---------------------------------------------------------- */
+  --container-max:          1460px; /* computed: #main .container max-width */
+  --container-pad:          50px;   /* computed: #main .container padding */
+  --container-content:      1360px; /* 1460 - 2*50 */
+
+  /* ---------- Rammen ----------------------------------------------------------
+     Avrundede hjoerner og myke skygger.
+     -------------------------------------------------------------------------- */
+  --radius-pill:            100px;  /* knapper: border-radius:100px (nyg-base.css) */
+  --radius-sm:              3px;    /* Enfold standard .avia-button */
+  --radius-card:            8px;    /* [DESIGN-ANTAGELSE] kort som ikke finnes paa originalsiden */
+  --shadow-header:          0 0 2px 1px rgba(0, 0, 0, 0.10); /* #header box-shadow */
+  --shadow-card:            0 2px 14px rgba(0, 0, 0, 0.18);  /* [DESIGN-ANTAGELSE] moerk bakgrunn */
+  --shadow-card-hover:      0 8px 26px rgba(0, 0, 0, 0.28);  /* [DESIGN-ANTAGELSE] */
+
+  /* ---------- Knapp (nyg-base.css #top #wrap_all .single-common-btn a) ------- */
+  --btn-font-size:          17px;
+  --btn-line-height:        25px;
+  --btn-padding:            8px 28px;
+  --btn-border-width:       2px;
+  --btn-border-color:       var(--color-brand);
+  --btn-color:              var(--color-text-invert);
+  --btn-bg:                 transparent;      /* outline-knapp paa moerk bakgrunn */
+  --btn-bg-hover:           var(--color-brand); /* :hover -> fylles med #00B44B */
+  --btn-radius:             var(--radius-pill);
+
+  /* Variant: fylt knapp brukt paa moerk bakgrunn der vi vil ha maks kontrast.
+     [DESIGN-ANTAGELSE] – finnes ikke som egen klasse paa originalsiden. */
+  --btn-solid-bg:           var(--color-brand);
+  --btn-solid-bg-hover:     var(--color-brand-hover);
+  --btn-solid-color:        #ffffff;
+
+  /* ---------- Skjema (nyg-base.css, wpcf7) ------------------------------------ */
+  --input-font-size:        16px;
+  --input-line-height:      20px;
+  --input-height:           50px;
+  --input-padding:          8px;
+  --input-bg:               var(--color-dark-700);
+  --input-color:            var(--color-text-invert);
+  --input-border:           1px solid #2c4a41; /* [DESIGN-ANTAGELSE] ikke synlig i computed styles */
+
+  /* ---------- Header (computed styles + header-HTML) -------------------------- */
+  --header-meta-height:     40px;
+  --header-height:          100px;
+  --logo-width:             194px;
+  --logo-height:            62px;
+  --nav-font-size:          20px;
+  --nav-padding:            10px 20px;
+  --nav-radius:             50px;
+
+  /* ---------- Overganger ------------------------------------------------------- */
+  --transition-fast:        150ms ease;
+  --transition:             250ms ease;
+
+  /* ---------- Breakpoints (nyg-base.css media queries) ------------------------- */
+  --bp-sm:                  576px;
+  --bp-md:                  768px;
+  --bp-lg:                  992px;
+  --bp-xl:                  1200px;
+  --bp-2xl:                 1640px;
+}
+
+/* ---------- Responsiv typografi (base.css: <768px og >=768px) ------------------ */
+@media (max-width: 767px) {
+  :root {
+    --fs-h1: 40px;  --lh-h1: 45px;
+    --fs-h2: 35px;  --lh-h2: 40px;
+    --fs-h3: 30px;  --lh-h3: 35px;
+    --fs-h4: 22px;  --lh-h4: 25px;
+    --fs-h6: 18px;  --lh-h6: 25px;
+    --fs-regular: 17px; --lh-regular: 22px;
+    --fs-small: 16px;   --lh-small: 20px;
+    --section-pad-y: 50px;
+    --section-pad-y-lg: 60px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  :root {
+    --fs-h1: 60px;  --lh-h1: 60px;
+    --fs-h2: 50px;  --lh-h2: 60px;
+    --fs-h3: 40px;  --lh-h3: 45px;
+    --fs-h4: 25px;  --lh-h4: 30px;
+    --fs-h6: 20px;  --lh-h6: 25px;
+  }
+}
+
+@media (max-width: 991px) {
+  :root {
+    --container-pad: 24px;
+  }
+}

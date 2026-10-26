@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="nb-NO">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Møteromsløsninger – Serve AS [MOCK]</title>
+  <meta name="description" content="Møteromsløsninger fra Serve AS: bilde, lyd, video og møteromsbooking. Komplett rom, ferdig levert og klart til bruk.">
+  <meta name="robots" content="noindex, nofollow">
+
+  <!-- Lokale assets – ingen eksterne tjenester, ingen tracking -->
+  <link rel="icon" href="assets/img/favicon.png" type="image/png">
+  <link rel="stylesheet" href="assets/css/fonts.css">
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Hopp til innhold</a>
+
+<!-- NYTT: MOCK-stripe. Skrus av/på med tast M. Vises ikke på en publisert side. -->
+<div class="mockbar" id="mockbar" role="status">
+  <span>MOCK – ikke publisert. Plassholdere i [klammer]</span>
+  <span><kbd>M</kbd> skjul/vis stripe · <kbd>B</kbd> bytt hero/CTA</span>
+  <span id="ab-status" aria-live="polite">Hero 1/3 · CTA A</span>
+</div>
+
+<!-- ==========================================================================
+     HEADER – Serve-stil, forenklet: logo, telefon, én CTA
+     ========================================================================== -->
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="site-header__logo" href="#top" aria-label="Serve AS – til toppen">
+      <img src="assets/img/serve-logo.svg" width="194" height="62" alt="Serve AS">
+    </a>
+
+    <div class="site-header__actions">
+      <a class="site-header__phone" href="tel:+4732211910">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/>
+        </svg>
+        <span>32 21 19 10</span>
+      </a>
+
+      <!-- NYTT: én tydelig primær-CTA i headeren -->
+      <a class="btn btn--solid site-header__cta" href="#tilbud" data-cta="primary">Få gratis møteroms-sjekk</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ========================================================================
+       1. HERO
+       ======================================================================== -->
+  <section class="hero" id="top">
+    <div class="container hero__inner">
+      <!-- NYTT: liten lenke tilbake til mock-oversikten -->
+      <a class="page-back" href="index.html">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+        Til oversikt
+      </a>
+
+      <p class="kicker">Møteromsløsninger</p>
+
+      <!-- NYTT: én h1 med tre hero-alternativer. Byttes med tast B. -->
+      <h1 class="hero__title" id="hero-title"
+          data-hero-1="Møterom som funker – hver gang"
+          data-hero-2="Færre svarte skjermer. Flere gode møter."
+          data-hero-3="Komplett møterom, klart til bruk">Møterom som funker – hver gang</h1>
+
+      <p class="hero__lead">Lyd, bilde og booking på plass. Serve leverer, installerer og setter opp rommet ditt.</p>
+
+      <ul class="hero__list">
+        <li>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00b44b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          Bilde, lyd og video
+        </li>
+        <li>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00b44b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          «One click to join»
+        </li>
+        <li>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00b44b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          Ingen dobbeltbooking
+        </li>
+      </ul>
+
+      <div class="hero__actions">
+        <a class="btn btn--solid btn--lg" href="#tilbud" data-cta="primary">Få gratis møteroms-sjekk</a>
+        <a class="link-quiet" href="tel:+4732211910">Ring oss: 32 21 19 10</a>
+      </div>
+
+      <!-- NYTT: bevislinje rett under CTA for å senke terskelen -->
+      <ul class="hero__proof">
+        <li>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00b44b" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5l-8-3Z"/></svg>
+          Canon Business Center
+        </li>
+        <li>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00b44b" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5l-8-3Z"/></svg>
+          Støtter Teams, Zoom og Google Meet
+        </li>
+        <li>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00b44b" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5l-8-3Z"/></svg>
+          Levert komplett og klart til bruk
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       2. PROBLEM -> LØSNING
+       ======================================================================== -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__head--center">
+        <p class="kicker">Kjenner du deg igjen?</p>
+        <h2 class="section__title">Tre ting som ødelegger møtet</h2>
+      </div>
+
+      <div class="problems__grid">
+        <article class="card-problem">
+          <span class="card-problem__icon" aria-hidden="true">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M11 5 6 9H2v6h4l5 4V5Z"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/>
+            </svg>
+          </span>
+          <h3 class="card-problem__title">Lyden svikter</h3>
+          <p class="card-problem__text">Vi setter opp mikrofoner og høyttalere som passer rommet, så alle blir sett, hørt og forstått.</p>
+        </article>
+
+        <article class="card-problem">
+          <span class="card-problem__icon" aria-hidden="true">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
+            </svg>
+          </span>
+          <h3 class="card-problem__title">Svart skjerm og komplisert oppkobling</h3>
+          <p class="card-problem__text">Med «one click to join» starter møtet i Teams, Zoom eller Google Meet uten ledninger og styr.</p>
+        </article>
+
+        <article class="card-problem">
+          <span class="card-problem__icon" aria-hidden="true">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="M9 16h6"/>
+            </svg>
+          </span>
+          <h3 class="card-problem__title">Dobbeltbooking</h3>
+          <p class="card-problem__text">Møteromspanel ved døren synkroniseres med kalenderen din og hindrer dobbeltbooking.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       3. PAKKER / ROMTYPER
+       ======================================================================== -->
+  <section class="section">
+    <div class="container">
+      <div class="section__head--center">
+        <p class="kicker">Velg romtype</p>
+        <h2 class="section__title">Tre pakker – samme trygghet</h2>
+        <p class="section__intro">Alle pakker leveres komplett, installert og klart til bruk. Usikker på hva du trenger? Vi vurderer gjenbruk av utstyret du har.</p>
+      </div>
+
+      <div class="packages__grid">
+        <!-- Huddle room -->
+        <article class="package">
+          <h3 class="package__name">Huddle room</h3>
+          <p class="package__meta">1–3 deltakere</p>
+          <ul class="package__list">
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00b44b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Komplett videokonferanseutstyr</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00b44b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Bilde, lyd og video</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00b44b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> «One click to join»</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00b44b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Levert og klart til bruk</li>
+          </ul>
+          <p class="package__price"><strong>[PLASSHOLDER: fra-pris huddle room]</strong> ekskl. mva.</p>
+          <a class="btn btn--block" href="#tilbud" data-cta="primary">Få gratis møteroms-sjekk</a>
+        </article>
+
+        <!-- Medium – mest valgt -->
+        <article class="package package--featured">
+          <span class="package__badge">Mest valgt</span>
+          <h3 class="package__name">Medium møterom</h3>
+          <p class="package__meta">[PLASSHOLDER: antall deltakere]</p>
+          <ul class="package__list">
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00b44b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Bilde, lyd og video</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00b44b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Møteromspanel som styrer rommet</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00b44b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Gjenbruk av utstyr du har</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00b44b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Opplæring og support</li>
+          </ul>
+          <p class="package__price"><strong>[PLASSHOLDER: fra-pris medium]</strong> ekskl. mva.</p>
+          <a class="btn btn--solid btn--block" href="#tilbud" data-cta="primary">Få gratis møteroms-sjekk</a>
+        </article>
+
+        <!-- Stort rom / auditorium -->
+        <article class="package">
+          <h3 class="package__name">Stort rom / auditorium</h3>
+          <p class="package__meta">[PLASSHOLDER: antall deltakere]</p>
+          <ul class="package__list">
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00b44b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Større møterom og auditorier</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00b44b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Lyd tilpasset store rom</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00b44b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Hybride møter med videokonferanse</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00b44b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Komplett rom, ferdig levert</li>
+          </ul>
+          <p class="package__price"><strong>[PLASSHOLDER: fra-pris stort rom]</strong> ekskl. mva.</p>
+          <a class="btn btn--block" href="#tilbud" data-cta="primary">Få gratis møteroms-sjekk</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       4. SLIK FUNGERER DET
+       ======================================================================== -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__head--center">
+        <p class="kicker">Slik fungerer det</p>
+        <h2 class="section__title">Fra behov til ferdig rom</h2>
+      </div>
+
+      <ol class="steps">
+        <li class="step">
+          <h3 class="step__title">Gratis sjekk</h3>
+          <p class="step__text">Vi ser på rommet og vurderer hva du kan gjenbruke av utstyret du allerede har.</p>
+        </li>
+        <li class="step">
+          <h3 class="step__title">Forslag og pris</h3>
+          <p class="step__text">Du får et konkret forslag tilpasset rommet ditt.</p>
+        </li>
+        <li class="step">
+          <h3 class="step__title">Levering og installasjon</h3>
+          <p class="step__text">Vi leverer og installerer alt – komplett rom, klart til bruk.</p>
+        </li>
+        <li class="step">
+          <h3 class="step__title">Opplæring og support</h3>
+          <p class="step__text">Vi viser hvordan det brukes. Support er åpent hverdager 08.00–16.00.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       5. MØTEROMSBOKING – DATABEAT DOORSIGN (ingen utgående lenke)
+       ======================================================================== -->
+  <section class="section">
+    <div class="container split">
+      <div class="split__media">
+        <img src="assets/img/doorsign.png" width="621" height="467" loading="lazy" alt="Digitalt møteromspanel ved døren som viser møteromsbooking og tilgjengelighet">
+      </div>
+      <div class="split__body">
+        <p class="kicker">Møteromspanel som gir full oversikt</p>
+        <h2 class="section__title">Booking</h2>
+        <p>Databeat Doorsign er et digitalt panel ved døren. Det er integrert med kalendersystemet ditt, og hindrer dobbeltbooking.</p>
+        <p>Panelet kan tilpasses med din egen profil – bakgrunnsbilder, video eller grafikk.</p>
+        <a class="btn" href="#tilbud" data-cta="primary">Få gratis møteroms-sjekk</a>
+        <!-- NYTT: krysslenke til signage-mocken -->
+        <p class="also-link">Se også: <a href="signage.html">digital signage</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       6. BEVIS
+       ======================================================================== -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__head--center">
+        <p class="kicker">Bevis</p>
+        <h2 class="section__title">Kunder som valgte Serve</h2>
+      </div>
+
+      <figure class="quote">
+        <blockquote>Serve har sørget for at vi kan bruke tiden vår på verdiskapende arbeid fremfor interndrift.</blockquote>
+        <figcaption>Sindre Andersen, daglig leder i Modum Kabel-TV</figcaption>
+      </figure>
+
+      <div class="refs__grid">
+        <article class="ref">
+          <span class="ref__date">13. august 2026</span>
+          <h3 class="ref__title">Modum Bad velger Serve</h3>
+          <p class="ref__text">Ny leverandør av utskriftsløsning – Canon multifunksjonsprintere og uniFLOW Cloud Print &amp; Scan.</p>
+        </article>
+        <article class="ref">
+          <span class="ref__date">20. mai 2026</span>
+          <h3 class="ref__title">Lysaker &amp; Thorrud valgte Serve</h3>
+          <p class="ref__text">Nye lokaler på Tranby – utskriftstjenester og kaffe på jobb.</p>
+        </article>
+      </div>
+
+      <div class="canon">
+        <img src="assets/img/canon-business-center.png" width="300" height="226" loading="lazy" alt="Canon Business Center by Serve">
+        <p>Serve er et Canon Business Center. Det gir bred og unik kompetanse, stort geografisk dekningsområde og fokus på nyskaping, sikkerhet og bærekraft.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       7. FAQ (trekkspill)
+       ======================================================================== -->
+  <section class="section">
+    <div class="container">
+      <div class="section__head--center">
+        <p class="kicker">Spørsmål og svar</p>
+        <h2 class="section__title">Det folk spør om</h2>
+      </div>
+
+      <div class="faq" id="faq">
+        <div class="faq__item">
+          <h3>
+            <button class="faq__q" type="button" aria-expanded="false" aria-controls="faq-a1" id="faq-q1">
+              Hva koster en møteromsløsning?
+              <svg class="faq__q-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00b44b" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </button>
+          </h3>
+          <div class="faq__a" id="faq-a1" role="region" aria-labelledby="faq-q1" hidden>
+            <p>Prisen avhenger av romstørrelse og utstyr. [PLASSHOLDER: fra-pris] – ta en gratis sjekk, så får du et konkret forslag.</p>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <h3>
+            <button class="faq__q" type="button" aria-expanded="false" aria-controls="faq-a2" id="faq-q2">
+              Hvor lang er leveringstiden?
+              <svg class="faq__q-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00b44b" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </button>
+          </h3>
+          <div class="faq__a" id="faq-a2" role="region" aria-labelledby="faq-q2" hidden>
+            <p>[PLASSHOLDER: leveringstid]. Vi bekrefter dato i forslaget du får.</p>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <h3>
+            <button class="faq__q" type="button" aria-expanded="false" aria-controls="faq-a3" id="faq-q3">
+              Støtter løsningen Teams, Zoom og Google Meet?
+              <svg class="faq__q-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00b44b" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </button>
+          </h3>
+          <div class="faq__a" id="faq-a3" role="region" aria-labelledby="faq-q3" hidden>
+            <p>Ja. Vi leverer videokonferanse med «one click to join» på Microsoft Teams, Zoom og Google Meet.</p>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <h3>
+            <button class="faq__q" type="button" aria-expanded="false" aria-controls="faq-a4" id="faq-q4">
+              Kan vi gjenbruke utstyr vi allerede har?
+              <svg class="faq__q-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00b44b" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </button>
+          </h3>
+          <div class="faq__a" id="faq-a4" role="region" aria-labelledby="faq-q4" hidden>
+            <p>Ja. Vi vurderer utstyret du har og hjelper deg å se hva som lønner seg. Det er både økonomisk og bærekraftig.</p>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <h3>
+            <button class="faq__q" type="button" aria-expanded="false" aria-controls="faq-a5" id="faq-q5">
+              Hvordan får vi support?
+              <svg class="faq__q-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00b44b" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </button>
+          </h3>
+          <div class="faq__a" id="faq-a5" role="region" aria-labelledby="faq-q5" hidden>
+            <p>Support er åpent hverdager 08.00–16.00. Du når oss på telefon, e-post eller via serviceportalen.</p>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <h3>
+            <button class="faq__q" type="button" aria-expanded="false" aria-controls="faq-a6" id="faq-q6">
+              Kan vi betale månedlig eller lease?
+              <svg class="faq__q-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00b44b" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </button>
+          </h3>
+          <div class="faq__a" id="faq-a6" role="region" aria-labelledby="faq-q6" hidden>
+            <p>[PLASSHOLDER: månedlig betaling/leasing]. Ta kontakt, så finner vi en ordning som passer.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       8. AVSLUTTENDE CTA + KORT SKJEMA
+       ======================================================================== -->
+  <section class="section cta-final" id="tilbud">
+    <div class="container cta-final__grid">
+      <div>
+        <p class="kicker">Gratis møteroms-sjekk</p>
+        <h2 class="section__title">Få et konkret forslag til møterommet ditt</h2>
+        <p>Vi ser på rommet, vurderer gjenbruk og gir deg forslag og pris. Ingen forpliktelser.</p>
+
+        <ul class="cta-final__points">
+          <li>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00b44b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            Komplett rom, ferdig levert og klart til bruk
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00b44b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            Vurdering av gjenbruk – økonomisk og bærekraftig
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00b44b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            Support hverdager 08.00–16.00
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <!-- NYTT: kort skjema. Sender INGEN data – kun lokal bekreftelse. -->
+        <form class="form" id="lead-form" novalidate>
+          <div class="form__row form__row--2">
+            <div class="form__field">
+              <label class="form__label" for="navn">Navn <span class="form__req" aria-hidden="true">*</span></label>
+              <input class="form__input" id="navn" name="navn" type="text" autocomplete="name" required aria-required="true">
+            </div>
+            <div class="form__field">
+              <label class="form__label" for="epost">E-post <span class="form__req" aria-hidden="true">*</span></label>
+              <input class="form__input" id="epost" name="epost" type="email" autocomplete="email" required aria-required="true">
+            </div>
+          </div>
+
+          <div class="form__row form__row--2">
+            <div class="form__field">
+              <label class="form__label" for="telefon">Telefon <span class="form__req" aria-hidden="true">*</span></label>
+              <input class="form__input" id="telefon" name="telefon" type="tel" autocomplete="tel" required aria-required="true">
+            </div>
+            <div class="form__field">
+              <label class="form__label" for="antall">Antall møterom <span class="form__note">(valgfritt)</span></label>
+              <select class="form__select" id="antall" name="antall">
+                <option value="">Velg …</option>
+                <option value="1">1</option>
+                <option value="2-3">2–3</option>
+                <option value="4-10">4–10</option>
+                <option value="10+">10+</option>
+              </select>
+            </div>
+          </div>
+
+          <fieldset class="form__fieldset">
+            <legend class="form__legend">Plattform <span class="form__note">(valgfritt)</span></legend>
+            <div class="form__choices">
+              <label class="form__choice"><input type="radio" name="plattform" value="Teams"> Teams</label>
+              <label class="form__choice"><input type="radio" name="plattform" value="Zoom"> Zoom</label>
+              <label class="form__choice"><input type="radio" name="plattform" value="Google Meet"> Google Meet</label>
+              <label class="form__choice"><input type="radio" name="plattform" value="Usikker"> Usikker</label>
+            </div>
+          </fieldset>
+
+          <div class="form__field">
+            <label class="form__label" for="melding">Litt om behovet <span class="form__note">(valgfritt)</span></label>
+            <textarea class="form__textarea" id="melding" name="melding" rows="4" placeholder="For eksempel: to rom på 6–8 personer, ønsker å gjenbruke skjermene vi har."></textarea>
+          </div>
+
+          <label class="form__consent">
+            <input type="checkbox" id="samtykke" name="samtykke" required aria-required="true">
+            <span>Jeg samtykker til at Serve kan kontakte meg. Les mer i <a href="https://serve.no/personvern/" target="_blank" rel="noopener noreferrer">personvernerklæringen</a>. <span class="form__req" aria-hidden="true">*</span></span>
+          </label>
+
+          <p class="form__error" id="form-error" role="alert" aria-live="polite"></p>
+
+          <button class="btn btn--solid btn--lg btn--block" type="submit" data-cta="primary">Få gratis møteroms-sjekk</button>
+          <p class="form__note">[PLASSHOLDER-løfte] Svar innen 1 arbeidsdag.</p>
+        </form>
+
+        <div class="form-success" id="form-success" role="status" aria-live="polite" tabindex="-1" hidden>
+          <h3>Takk! Vi tar kontakt.</h3>
+          <p>Dette er en mock – ingen data er sendt. Se console for innholdet du fylte ut.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ==========================================================================
+     FOOTER – Serve-stil med full kontaktinfo
+     ========================================================================== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__grid">
+      <div>
+        <img class="site-footer__logo" src="assets/img/serve-logo.svg" width="194" height="62" loading="lazy" alt="Serve AS">
+        <p>Møteromsløsninger, printere og skannere, dokumenthåndtering og digital signage.</p>
+      </div>
+
+      <div>
+        <h2 class="site-footer__heading">Kontakt</h2>
+        <ul class="site-footer__list">
+          <li>
+            <a href="mailto:post@serve.no">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2 6 12 13 22 6"/></svg>
+              post@serve.no
+            </a>
+          </li>
+          <li>
+            <a href="tel:+4732211910">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
+              +47 32 21 19 10
+            </a>
+          </li>
+          <li>
+            <a href="https://goo.gl/maps/H6isEwBNqAuNQVLY8" target="_blank" rel="noopener noreferrer">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              Teglverksveien 59, 3057 Solbergelva
+            </a>
+          </li>
+          <li>
+            <span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 16 14"/></svg>
+              Support: hverdager 08.00–16.00
+            </span>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="site-footer__heading">Løsninger</h2>
+        <ul class="site-footer__list">
+          <li><a href="https://serve.no/losninger/moteromslosninger/">Møteromsløsninger</a></li>
+          <li><a href="https://serve.no/losninger/printere-og-skannere/">Printere og skannere</a></li>
+          <li><a href="https://serve.no/losninger/dokumenthandtering/">Dokumenthåndtering</a></li>
+          <li><a href="https://serve.no/losninger/digital-signage/">Digital signage</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="site-footer__heading">Support og kontakt</h2>
+        <ul class="site-footer__list">
+          <li><a href="https://serve.no/support/" target="_blank" rel="noopener noreferrer">Serviceportal og support</a></li>
+          <li><a href="tel:+4732211910">Ring 32 21 19 10</a></li>
+          <li><a href="mailto:post@serve.no">Send e-post</a></li>
+        </ul>
+
+        <h2 class="site-footer__heading" style="margin-top:20px;">Følg oss</h2>
+        <div class="site-footer__social">
+          <a href="https://www.linkedin.com/company/serveas/" target="_blank" rel="noopener noreferrer" aria-label="Serve AS på LinkedIn">
+            <img src="assets/img/linkedin-icon.svg" width="26" height="26" loading="lazy" alt="">
+          </a>
+          <a href="https://www.facebook.com/serveflyt" target="_blank" rel="noopener noreferrer" aria-label="Serve AS på Facebook">
+            <img src="assets/img/facebook-icon.svg" width="26" height="26" loading="lazy" alt="">
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="site-footer__bottom">
+      <p>© Serve AS · Teglverksveien 59, 3057 Solbergelva</p>
+      <ul>
+        <li><a href="https://serve.no/personvern/">Personvern</a></li>
+        <li><span>[PLASSHOLDER: org.nr]</span></li>
+        <li><a href="index.html">Til oversikt</a></li>
+        <li><span>Mock laget for internt møte</span></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<!-- NYTT: sticky CTA på mobil -->
+<div class="mobile-cta" aria-label="Rask kontakt">
+  <a class="btn" href="tel:+4732211910">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
+    Ring
+  </a>
+  <a class="btn btn--solid" href="#tilbud" data-cta="primary">Få gratis møteroms-sjekk</a>
+</div>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

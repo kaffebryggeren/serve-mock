@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="nb-NO">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Digital signage – Serve AS [MOCK]</title>
+  <meta name="description" content="Digital signage fra Serve AS: infoskjermer, reklameskjermer og digital skilting. Skjerm, programvare, montering og support – enkelt, greit og driftssikkert.">
+  <meta name="robots" content="noindex, nofollow">
+
+  <!-- Lokale assets – ingen eksterne tjenester, ingen tracking -->
+  <link rel="icon" href="assets/img/favicon.png" type="image/png">
+  <link rel="stylesheet" href="assets/css/fonts.css">
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<!-- A/B-tekster for denne siden leses fra data-attributtene under (se main.js) -->
+<body data-cta-a="Få tilbud på infoskjermer" data-cta-b="Få gratis behovsvurdering">
+
+<a class="skip-link" href="#main">Hopp til innhold</a>
+
+<!-- NYTT: MOCK-stripe. Skrus av/på med tast M. Vises ikke på en publisert side. -->
+<div class="mockbar" id="mockbar" role="status">
+  <span>MOCK – ikke publisert. Plassholdere i [klammer]</span>
+  <span><kbd>M</kbd> skjul/vis stripe · <kbd>B</kbd> bytt hero/CTA</span>
+  <span id="ab-status" aria-live="polite">Hero 1/3 · CTA A</span>
+</div>
+
+<!-- ==========================================================================
+     1. HEADER – logo, telefon, én CTA
+     ========================================================================== -->
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="site-header__logo" href="#top" aria-label="Serve AS – til toppen">
+      <img src="assets/img/serve-logo.svg" width="194" height="62" alt="Serve AS">
+    </a>
+
+    <div class="site-header__actions">
+      <a class="site-header__phone" href="tel:+4732211910">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/>
+        </svg>
+        <span>32 21 19 10</span>
+      </a>
+
+      <a class="btn btn--solid site-header__cta" href="#tilbud">Få tilbud</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ========================================================================
+       2. HERO
+       ======================================================================== -->
+  <section class="hero hero--signage" id="top">
+    <div class="container hero__inner">
+      <!-- NYTT: liten lenke tilbake til mock-oversikten -->
+      <a class="page-back" href="index.html">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+        Til oversikt
+      </a>
+
+      <p class="kicker">Digital signage</p>
+
+      <!-- NYTT: én h1 med tre hero-alternativer. Byttes med tast B. -->
+      <h1 class="hero__title" id="hero-title"
+          data-hero-1="Riktig budskap, rett sted, rett tid"
+          data-hero-2="Skjermer som snakker til folk – der de er"
+          data-hero-3="Fra tom vegg til levende budskap">Riktig budskap, rett sted, rett tid</h1>
+
+      <p class="hero__lead">Infoskjermer, reklameskjermer og digital skilting. Serve leverer skjerm, programvare, montering og support.</p>
+
+      <ul class="hero__list">
+        <li>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00b44b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          Infoskjermer, reklame og skilting
+        </li>
+        <li>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00b44b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          PLAYipp og DataBeat Signage
+        </li>
+        <li>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00b44b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          Innendørs og utendørs LED
+        </li>
+      </ul>
+
+      <div class="hero__actions">
+        <!-- Primær-CTA (A/B: byttes med tast B) + sekundær CTA som viser den andre varianten -->
+        <a class="btn btn--solid btn--lg" href="#tilbud" data-cta="primary">Få tilbud på infoskjermer</a>
+        <a class="btn btn--lg" href="#tilbud" data-cta="secondary">Få gratis behovsvurdering</a>
+        <a class="link-quiet" href="tel:+4732211910">Ring oss: 32 21 19 10</a>
+      </div>
+
+      <!-- NYTT: bevislinje rett under CTA -->
+      <ul class="hero__proof">
+        <li>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00b44b" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5l-8-3Z"/></svg>
+          Canon Business Center
+        </li>
+        <li>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00b44b" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5l-8-3Z"/></svg>
+          Skjerm, programvare, montering og support
+        </li>
+        <li>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00b44b" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5l-8-3Z"/></svg>
+          Enkelt, greit og driftssikkert
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       3. HVOR SKAL SKJERMENE STÅ? – klikkbare kort som forhåndsvelger plassering
+       ======================================================================== -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__head--center">
+        <p class="kicker">Hvor trenger dere skjermer?</p>
+        <h2 class="section__title">Trykk på stedet som passer deg</h2>
+        <p class="section__intro">Velg hvor skjermene skal stå, så tar vi utgangspunkt i det når vi gir deg tilbud.</p>
+      </div>
+
+      <div class="places__grid">
+        <a class="card-place" href="#tilbud" data-preset-field="plassering" data-preset-value="Resepsjon">
+          <span class="card-place__icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-5h6v5"/>
+            </svg>
+          </span>
+          <h3 class="card-place__title">Resepsjon og besøkende</h3>
+          <p class="card-place__text">Hils velkommen med oppdatert informasjon og et profesjonelt inntrykk.</p>
+          <span class="card-place__more">Gi meg tilbud her</span>
+        </a>
+
+        <a class="card-place" href="#tilbud" data-preset-field="plassering" data-preset-value="Kantine">
+          <span class="card-place__icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 3v8a3 3 0 0 0 6 0V3"/><path d="M7 11v10"/><path d="M18 3c-2 3-2 6 0 8v10"/>
+            </svg>
+          </span>
+          <h3 class="card-place__title">Kantine og internkommunikasjon</h3>
+          <p class="card-place__text">Nå alle ansatte med beskjeder, menyer og resultater.</p>
+          <span class="card-place__more">Gi meg tilbud her</span>
+        </a>
+
+        <a class="card-place" href="#tilbud" data-preset-field="plassering" data-preset-value="Møterom">
+          <span class="card-place__icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/>
+            </svg>
+          </span>
+          <h3 class="card-place__title">Møterom</h3>
+          <p class="card-place__text">Vis agenda, deltakerliste og bookingstatus ved døren.</p>
+          <span class="card-place__more">Gi meg tilbud her</span>
+        </a>
+
+        <a class="card-place" href="#tilbud" data-preset-field="plassering" data-preset-value="Butikk/gulv">
+          <span class="card-place__icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 9h18l-1.5 11h-15Z"/><path d="M8 9V6a4 4 0 0 1 8 0v3"/>
+            </svg>
+          </span>
+          <h3 class="card-place__title">Butikk, hotell og skole</h3>
+          <p class="card-place__text">Reklame, tilbud og informasjon som treffer der folk er.</p>
+          <span class="card-place__more">Gi meg tilbud her</span>
+        </a>
+
+        <a class="card-place" href="#tilbud" data-preset-field="plassering" data-preset-value="Produksjon">
+          <span class="card-place__icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 21V9l6 4V9l6 4V6h6v15Z"/><path d="M7 17h.01"/><path d="M15 17h.01"/>
+            </svg>
+          </span>
+          <h3 class="card-place__title">Produksjon</h3>
+          <p class="card-place__text">Hold orden på status, HMS og tall i produksjonslokalet.</p>
+          <span class="card-place__more">Gi meg tilbud her</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       4. PAKKER
+       ======================================================================== -->
+  <section class="section">
+    <div class="container">
+      <div class="section__head--center">
+        <p class="kicker">Velg nivå</p>
+        <h2 class="section__title">Tre pakker – samme trygghet</h2>
+        <p class="section__intro">Alle pakker leveres med kvalitetsskjermer som gir profesjonell bildekvalitet, montert og klart til bruk.</p>
+      </div>
+
+      <div class="packages__grid">
+        <!-- Start -->
+        <article class="package">
+          <h3 class="package__name">Start</h3>
+          <p class="package__meta">1–3 skjermer</p>
+          <ul class="package__list">
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00b44b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Kvalitetsskjermer med profesjonell bildekvalitet</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00b44b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Programvare for publisering</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00b44b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Montering og installasjon</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00b44b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Support hverdager 08.00–16.00</li>
+          </ul>
+          <p class="package__price"><strong>[PLASSHOLDER: fra-pris start]</strong> ekskl. mva.</p>
+          <a class="btn btn--block" href="#tilbud" data-cta="primary">Få tilbud på infoskjermer</a>
+        </article>
+
+        <!-- Kontor – mest valgt -->
+        <article class="package package--featured">
+          <span class="package__badge">Mest valgt</span>
+          <h3 class="package__name">Kontor</h3>
+          <p class="package__meta">Resepsjon, kantine og møterom</p>
+          <ul class="package__list">
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00b44b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Alt i Start</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00b44b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Flere soner i samme bygg</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00b44b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Tilpass budskap etter klokkeslett</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00b44b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Opplæring av teamet</li>
+          </ul>
+          <p class="package__price"><strong>[PLASSHOLDER: fra-pris kontor]</strong> ekskl. mva.</p>
+          <a class="btn btn--solid btn--block" href="#tilbud" data-cta="primary">Få tilbud på infoskjermer</a>
+        </article>
+
+        <!-- Flere lokasjoner -->
+        <article class="package">
+          <h3 class="package__name">Flere lokasjoner</h3>
+          <p class="package__meta">Stor installasjon</p>
+          <ul class="package__list">
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00b44b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Samlet styring på tvers av lokasjoner</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00b44b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Skybasert publisering</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00b44b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Innendørs og utendørs LED</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00b44b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Serviceavtale og support</li>
+          </ul>
+          <p class="package__price"><strong>Be om pris</strong> tilpasset antall skjermer og lokasjoner.</p>
+          <a class="btn btn--block" href="#tilbud" data-cta="primary">Få tilbud på infoskjermer</a>
+        </article>
+      </div>
+
+      <p class="packages__note">Dette er inkludert: [PLASSHOLDER – bekreft]</p>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       5. PLAYIPP ELLER DATABEAT? – sammenligningstabell
+       ======================================================================== -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__head--center">
+        <p class="kicker">Velg plattform</p>
+        <h2 class="section__title">PLAYipp eller DataBeat?</h2>
+      </div>
+
+      <div class="compare-wrap">
+        <table class="compare">
+          <caption class="visually-hidden">Sammenligning av PLAYipp og DataBeat Signage</caption>
+          <thead>
+            <tr>
+              <th scope="col"><span class="visually-hidden">Egenskap</span></th>
+              <th scope="col">PLAYipp</th>
+              <th scope="col">DataBeat Signage</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Passer best for</th>
+              <td>[PLASSHOLDER: typisk behov]</td>
+              <td>[PLASSHOLDER: typisk behov]</td>
+            </tr>
+            <tr>
+              <th scope="row">Styres fra</th>
+              <td>Hvor som helst</td>
+              <td>Hvor som helst, når som helst</td>
+            </tr>
+            <tr>
+              <th scope="row">Styrker</th>
+              <td>Tilpass budskap etter klokkeslett eller ukedag</td>
+              <td>Skybasert publisering av bilder og video</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="compare-cta">
+        <p><strong>Usikker? Vi hjelper deg å velge.</strong> Vi ser på behovet ditt og anbefaler plattformen som passer.</p>
+        <a class="btn btn--solid" href="#tilbud" data-cta="primary">Få tilbud på infoskjermer</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       6. SLIK FUNGERER DET
+       ======================================================================== -->
+  <section class="section">
+    <div class="container">
+      <div class="section__head--center">
+        <p class="kicker">Slik fungerer det</p>
+        <h2 class="section__title">Fra behov til levende skjermer</h2>
+      </div>
+
+      <ol class="steps">
+        <li class="step">
+          <h3 class="step__title">Gratis behovsvurdering</h3>
+          <p class="step__text">Vi ser på lokalet og hva som skal vises – og hvor skjermene bør stå.</p>
+        </li>
+        <li class="step">
+          <h3 class="step__title">Forslag og pris</h3>
+          <p class="step__text">Du får forslag til skjerm, størrelse, plassering og programvare.</p>
+        </li>
+        <li class="step">
+          <h3 class="step__title">Levering og installasjon</h3>
+          <p class="step__text">Vi leverer, monterer og setter opp løsningen ferdig.</p>
+        </li>
+        <li class="step">
+          <h3 class="step__title">Opplæring og support</h3>
+          <p class="step__text">Vi viser hvordan du publiserer. Support er åpent hverdager 08.00–16.00.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       7. MØTEROM-SYNERGI – Doorsign + lenke til møteromsmocken
+       ======================================================================== -->
+  <section class="section section--alt">
+    <div class="container split">
+      <div class="split__media">
+        <img src="assets/img/doorsign.png" width="621" height="467" loading="lazy" alt="Digitalt dørskilt ved et møterom som viser møtebooking og tilgjengelighet">
+      </div>
+      <div class="split__body">
+        <p class="kicker">Samme skjermer, flere behov</p>
+        <h2 class="section__title">Digitalt dørskilt til møterommet</h2>
+        <p>Databeat Doorsign er et digitalt dørskilt med kalenderintegrasjon. Det hindrer dobbeltbooking og viser hva som skjer i rommet.</p>
+        <p>Vi leverer både signage og komplette møterom – med samme leverandør og samme support.</p>
+        <a class="btn btn--solid" href="#tilbud" data-cta="primary">Få tilbud på infoskjermer</a>
+        <p class="also-link">Se også: <a href="moterom.html">møteromsløsninger</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       8. LED-VEGG – kompakt seksjon
+       ======================================================================== -->
+  <section class="section">
+    <div class="container split split--reverse">
+      <div class="split__media">
+        <img src="assets/img/signage-led.jpg" width="1024" height="676" loading="lazy" alt="Modulbasert LED-skjermvegg uten rammer, montert på vegg">
+      </div>
+      <div class="split__body">
+        <p class="kicker">Når det skal gjøre inntrykk</p>
+        <h2 class="section__title">LED-vegg i valgfri størrelse</h2>
+        <p>LED-skjermer er modulbaserte og bygges i den størrelsen og det formatet som passer. Rammeløse paneler gir et helhetlig bilde med høy lysstyrke.</p>
+        <ul class="led__list">
+          <li>Auditorium</li>
+          <li>Resepsjon</li>
+          <li>Kantine</li>
+          <li>Kontrollrom</li>
+        </ul>
+        <p class="led__note">Innendørs og utendørs · kan kurves eller stå fritt</p>
+        <!-- CTA som forhåndsvelger LED-vegg i skjemaet -->
+        <a class="btn btn--solid" href="#tilbud" data-preset-field="plassering" data-preset-value="LED-vegg">Be om LED-tilbud</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       9. BEVIS
+       ======================================================================== -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__head--center">
+        <p class="kicker">Bevis</p>
+        <h2 class="section__title">Kunder som valgte Serve</h2>
+      </div>
+
+      <figure class="quote">
+        <blockquote>Serve har sørget for at vi kan bruke tiden vår på verdiskapende arbeid fremfor interndrift.</blockquote>
+        <figcaption>Sindre Andersen, daglig leder i Modum Kabel-TV</figcaption>
+      </figure>
+
+      <div class="refs__grid">
+        <article class="ref">
+          <span class="ref__date">13. august 2026</span>
+          <h3 class="ref__title">Modum Bad velger Serve</h3>
+          <p class="ref__text">Ny leverandør av utskriftsløsning – Canon multifunksjonsprintere og uniFLOW Cloud Print &amp; Scan.</p>
+        </article>
+        <article class="ref">
+          <span class="ref__date">20. mai 2026</span>
+          <h3 class="ref__title">Lysaker &amp; Thorrud valgte Serve</h3>
+          <p class="ref__text">Nye lokaler på Tranby – utskriftstjenester og kaffe på jobb.</p>
+        </article>
+      </div>
+
+      <!-- NYTT: plassholder for signage-spesifikk kundecase og tall -->
+      <div class="refs__grid refs__grid--placeholders">
+        <article class="ref ref--placeholder">
+          <span class="ref__date">Kundecase</span>
+          <h3 class="ref__title">[PLASSHOLDER: kundecase signage]</h3>
+          <p class="ref__text">[PLASSHOLDER: kunde, bransje og resultat]</p>
+        </article>
+        <article class="ref ref--placeholder">
+          <span class="ref__date">Tall</span>
+          <h3 class="ref__title">[PLASSHOLDER: antall installerte skjermer]</h3>
+          <p class="ref__text">[PLASSHOLDER: antall lokasjoner eller år som leverandør]</p>
+        </article>
+      </div>
+
+      <div class="canon">
+        <img src="assets/img/canon-business-center.png" width="300" height="226" loading="lazy" alt="Canon Business Center by Serve">
+        <p>Serve er et Canon Business Center. Det gir bred og unik kompetanse, stort geografisk dekningsområde og fokus på nyskaping, sikkerhet og bærekraft.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       10. FAQ (trekkspill)
+       ======================================================================== -->
+  <section class="section">
+    <div class="container">
+      <div class="section__head--center">
+        <p class="kicker">Spørsmål og svar</p>
+        <h2 class="section__title">Det folk spør om</h2>
+      </div>
+
+      <div class="faq" id="faq">
+        <div class="faq__item">
+          <h3>
+            <button class="faq__q" type="button" aria-expanded="false" aria-controls="sign-faq-a1" id="sign-faq-q1">
+              Hva koster digital signage?
+              <svg class="faq__q-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00b44b" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </button>
+          </h3>
+          <div class="faq__a" id="sign-faq-a1" role="region" aria-labelledby="sign-faq-q1" hidden>
+            <p>Prisen avhenger av antall skjermer, størrelse og plassering. [PLASSHOLDER: fra-pris] – ta en gratis behovsvurdering, så får du et konkret forslag.</p>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <h3>
+            <button class="faq__q" type="button" aria-expanded="false" aria-controls="sign-faq-a2" id="sign-faq-q2">
+              Trenger vi egen spiller?
+              <svg class="faq__q-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00b44b" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </button>
+          </h3>
+          <div class="faq__a" id="sign-faq-a2" role="region" aria-labelledby="sign-faq-q2" hidden>
+            <p>Nei. Publiseringstjenesten knyttes direkte til skjermen, så du slipper ekstern spiller.</p>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <h3>
+            <button class="faq__q" type="button" aria-expanded="false" aria-controls="sign-faq-a3" id="sign-faq-q3">
+              Kan vi oppdatere innholdet selv?
+              <svg class="faq__q-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00b44b" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </button>
+          </h3>
+          <div class="faq__a" id="sign-faq-a3" role="region" aria-labelledby="sign-faq-q3" hidden>
+            <p>Ja. Du styrer innholdet fra hvor som helst, og kan tilpasse budskapet etter klokkeslett eller ukedag.</p>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <h3>
+            <button class="faq__q" type="button" aria-expanded="false" aria-controls="sign-faq-a4" id="sign-faq-q4">
+              Passer det for flere lokasjoner?
+              <svg class="faq__q-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00b44b" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </button>
+          </h3>
+          <div class="faq__a" id="sign-faq-a4" role="region" aria-labelledby="sign-faq-q4" hidden>
+            <p>Ja. Med skybasert publisering når du alle skjermene dine, uansett hvor de står.</p>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <h3>
+            <button class="faq__q" type="button" aria-expanded="false" aria-controls="sign-faq-a5" id="sign-faq-q5">
+              Kan vi bruke skjermer vi har fra før?
+              <svg class="faq__q-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00b44b" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </button>
+          </h3>
+          <div class="faq__a" id="sign-faq-a5" role="region" aria-labelledby="sign-faq-q5" hidden>
+            <p>[PLASSHOLDER: kan eksisterende skjermer gjenbrukes]. Vi tar en behovsvurdering og ser på hva som lønner seg for dere.</p>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <h3>
+            <button class="faq__q" type="button" aria-expanded="false" aria-controls="sign-faq-a6" id="sign-faq-q6">
+              Hva inkluderer support?
+              <svg class="faq__q-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00b44b" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </button>
+          </h3>
+          <div class="faq__a" id="sign-faq-a6" role="region" aria-labelledby="sign-faq-q6" hidden>
+            <p>Support er åpent hverdager 08.00–16.00. Du når oss på e-post, telefon eller via serviceportalen.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       11. AVSLUTTENDE CTA + SKJEMA
+       ======================================================================== -->
+  <section class="section cta-final" id="tilbud">
+    <div class="container cta-final__grid">
+      <div>
+        <p class="kicker">Gratis behovsvurdering</p>
+        <h2 class="section__title">Få et konkret forslag til skjermløsningen</h2>
+        <p>Vi ser på lokalet og behovet ditt, og foreslår skjerm, programvare og plassering. Ingen forpliktelser.</p>
+
+        <ul class="cta-final__points">
+          <li>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00b44b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            Skjerm, programvare, montering og support
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00b44b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            Innendørs og utendørs – også LED-vegg
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00b44b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            Support hverdager 08.00–16.00
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <!-- NYTT: kort skjema. Sender INGEN data – kun lokal bekreftelse. -->
+        <form class="form" id="lead-form" novalidate>
+          <div class="form__row form__row--2">
+            <div class="form__field">
+              <label class="form__label" for="navn">Navn <span class="form__req" aria-hidden="true">*</span></label>
+              <input class="form__input" id="navn" name="navn" type="text" autocomplete="name" required aria-required="true">
+            </div>
+            <div class="form__field">
+              <label class="form__label" for="epost">E-post <span class="form__req" aria-hidden="true">*</span></label>
+              <input class="form__input" id="epost" name="epost" type="email" autocomplete="email" required aria-required="true">
+            </div>
+          </div>
+
+          <div class="form__row form__row--2">
+            <div class="form__field">
+              <label class="form__label" for="telefon">Telefon <span class="form__req" aria-hidden="true">*</span></label>
+              <input class="form__input" id="telefon" name="telefon" type="tel" autocomplete="tel" required aria-required="true">
+            </div>
+            <div class="form__field">
+              <label class="form__label" for="antallSkjermer">Antall skjermer <span class="form__note">(valgfritt)</span></label>
+              <select class="form__select" id="antallSkjermer" name="antallSkjermer">
+                <option value="">Velg …</option>
+                <option value="1-3">1–3</option>
+                <option value="4-10">4–10</option>
+                <option value="10+">10+</option>
+                <option value="Vet ikke">Vet ikke</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form__field">
+            <label class="form__label" for="plassering">Hvor skal skjermene stå? <span class="form__note">(valgfritt)</span></label>
+            <select class="form__select" id="plassering" name="plassering">
+              <option value="">Velg …</option>
+              <option value="Resepsjon">Resepsjon</option>
+              <option value="Kantine">Kantine</option>
+              <option value="Møterom">Møterom</option>
+              <option value="Butikk/gulv">Butikk/gulv</option>
+              <option value="Produksjon">Produksjon</option>
+              <option value="LED-vegg">LED-vegg</option>
+            </select>
+          </div>
+
+          <fieldset class="form__fieldset">
+            <legend class="form__legend">Har dere skjermer fra før? <span class="form__note">(valgfritt)</span></legend>
+            <div class="form__choices">
+              <label class="form__choice"><input type="radio" name="skjermer" value="Ja"> Ja</label>
+              <label class="form__choice"><input type="radio" name="skjermer" value="Nei"> Nei</label>
+              <label class="form__choice"><input type="radio" name="skjermer" value="Vet ikke"> Vet ikke</label>
+            </div>
+          </fieldset>
+
+          <div class="form__field">
+            <label class="form__label" for="melding">Litt om behovet <span class="form__note">(valgfritt)</span></label>
+            <textarea class="form__textarea" id="melding" name="melding" rows="4" placeholder="For eksempel: to skjermer i resepsjonen og én i kantinen, ønsker å vise menyer og beskjeder."></textarea>
+          </div>
+
+          <label class="form__consent">
+            <input type="checkbox" id="samtykke" name="samtykke" required aria-required="true">
+            <span>Jeg samtykker til at Serve kan kontakte meg. Les mer i <a href="https://serve.no/personvern/" target="_blank" rel="noopener noreferrer">personvernerklæringen</a>. <span class="form__req" aria-hidden="true">*</span></span>
+          </label>
+
+          <p class="form__error" id="form-error" role="alert" aria-live="polite"></p>
+
+          <button class="btn btn--solid btn--lg btn--block" type="submit" data-cta="primary">Få tilbud på infoskjermer</button>
+          <p class="form__note">[PLASSHOLDER-løfte] Svar innen 1 arbeidsdag.</p>
+        </form>
+
+        <div class="form-success" id="form-success" role="status" aria-live="polite" tabindex="-1" hidden>
+          <h3>Takk! Vi tar kontakt.</h3>
+          <p>Dette er en mock – ingen data er sendt. Se console for innholdet du fylte ut.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ==========================================================================
+     12. FOOTER – full kontaktinfo. Krysslenker uten digital signage (denne siden)
+     ========================================================================== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__grid">
+      <div>
+        <img class="site-footer__logo" src="assets/img/serve-logo.svg" width="194" height="62" loading="lazy" alt="Serve AS">
+        <p>Digital signage, møteromsløsninger, printere og skannere og dokumenthåndtering.</p>
+      </div>
+
+      <div>
+        <h2 class="site-footer__heading">Kontakt</h2>
+        <ul class="site-footer__list">
+          <li>
+            <a href="mailto:post@serve.no">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2 6 12 13 22 6"/></svg>
+              post@serve.no
+            </a>
+          </li>
+          <li>
+            <a href="tel:+4732211910">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
+              +47 32 21 19 10
+            </a>
+          </li>
+          <li>
+            <a href="https://goo.gl/maps/H6isEwBNqAuNQVLY8" target="_blank" rel="noopener noreferrer">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              Teglverksveien 59, 3057 Solbergelva
+            </a>
+          </li>
+          <li>
+            <span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 16 14"/></svg>
+              Support: hverdager 08.00–16.00
+            </span>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="site-footer__heading">Andre løsninger</h2>
+        <ul class="site-footer__list">
+          <li><a href="moterom.html">Møteromsløsninger</a></li>
+          <li><a href="https://serve.no/losninger/printere-og-skannere/">Printere og skannere</a></li>
+          <li><a href="https://serve.no/losninger/dokumenthandtering/">Dokumenthåndtering</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="site-footer__heading">Support og kontakt</h2>
+        <ul class="site-footer__list">
+          <li><a href="https://serve.no/support/" target="_blank" rel="noopener noreferrer">Serviceportal og support</a></li>
+          <li><a href="tel:+4732211910">Ring 32 21 19 10</a></li>
+          <li><a href="mailto:post@serve.no">Send e-post</a></li>
+        </ul>
+
+        <h2 class="site-footer__heading" style="margin-top:20px;">Følg oss</h2>
+        <div class="site-footer__social">
+          <a href="https://www.linkedin.com/company/serveas/" target="_blank" rel="noopener noreferrer" aria-label="Serve AS på LinkedIn">
+            <img src="assets/img/linkedin-icon.svg" width="26" height="26" loading="lazy" alt="">
+          </a>
+          <a href="https://www.facebook.com/serveflyt" target="_blank" rel="noopener noreferrer" aria-label="Serve AS på Facebook">
+            <img src="assets/img/facebook-icon.svg" width="26" height="26" loading="lazy" alt="">
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="site-footer__bottom">
+      <p>© Serve AS · Teglverksveien 59, 3057 Solbergelva</p>
+      <ul>
+        <li><a href="https://serve.no/personvern/">Personvern</a></li>
+        <li><span>[PLASSHOLDER: org.nr]</span></li>
+        <li><a href="index.html">Til oversikt</a></li>
+        <li><span>Mock laget for internt møte</span></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<!-- NYTT: sticky CTA på mobil -->
+<div class="mobile-cta" aria-label="Rask kontakt">
+  <a class="btn" href="tel:+4732211910">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
+    Ring
+  </a>
+  <a class="btn btn--solid" href="#tilbud" data-cta="primary">Få tilbud på infoskjermer</a>
+</div>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
