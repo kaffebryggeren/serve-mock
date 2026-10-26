@@ -9,12 +9,16 @@ konverteringsforbedringer i et internt møte:
 | Digital signage | `https://serve.no/losninger/digital-signage/` | `signage.html` |
 | Oversikt | – | `index.html` |
 
-> **Status: IKKE PUBLISERT.** Ingen deploy, ingen push, ingen FTP/SSH, ingen WordPress-innlogging.
-> Sidene kjører kun på `localhost`. Skjemaene sender **ingen** data – de viser en bekreftelse i
-> siden og logger til konsollen.
+> **Status: gjennomgangskopi – ikke produksjon.** Ingenting er lastet opp til serve.no eller
+> endret i WordPress. Repoet [`kaffebryggeren/serve-mock`](https://github.com/kaffebryggeren/serve-mock)
+> er publisert som en **offentlig gjennomgangskopi** på GitHub Pages, slik at kollegaer kan se de
+> faktiske sidene: **https://kaffebryggeren.github.io/serve-mock/**
+> Alle tre sider har `noindex, nofollow`, så de skal ikke dukke opp i søkemotorer.
+>
+> Skjemaene sender **ingen** data – de viser en bekreftelse i siden og logger til konsollen.
 > Alt av CSS, fonter, logo og bilder er hentet med **skrivebeskyttede HTTP GET** mot serve.no
-> og lastet ned lokalt slik at sidene fungerer helt offline. Ingen tracking, analytics eller
-> andre eksterne tjenester er inkludert.
+> og ligger lokalt i `assets/`, slik at sidene fungerer helt offline. Ingen tracking, analytics
+> eller andre eksterne tjenester er inkludert.
 
 ---
 
@@ -33,6 +37,12 @@ python -m http.server 8080 --bind 127.0.0.1
 - **Møteromsløsninger:** http://localhost:8080/moterom.html
 - **Digital signage:** http://localhost:8080/signage.html
 
+Samme sider er også publisert som gjennomgangskopi (samme innhold, ingen innlogging):
+
+- **Oversikt:** https://kaffebryggeren.github.io/serve-mock/
+- **Møteromsløsninger:** https://kaffebryggeren.github.io/serve-mock/moterom.html
+- **Digital signage:** https://kaffebryggeren.github.io/serve-mock/signage.html
+
 Stopp serveren med `Ctrl + C` i terminalen (eller stopp jobben i editoren).
 
 **Alternativer:** `npx serve .` eller `php -S 127.0.0.1:8080` fungerer også.
@@ -49,6 +59,10 @@ Stopp serveren med `Ctrl + C` i terminalen (eller stopp jobben i editoren).
 Tastetrykk ignoreres når markøren står i et skjemafelt, og ved modifier-taster (Ctrl/Alt/Meta).
 Begge sidene har egne hero- og CTA-varianter (leses fra `data-*`-attributter på `<body>`/`<h1>`),
 slik at samme `main.js` driver begge sider.
+
+Stripa viser fortsatt «MOCK – ikke publisert» også på den publiserte gjennomgangskopien. Det er et
+bevisst valg: den markerer at sidene er et forslag med plassholdere, ikke Serve sine produksjonssider.
+Den skjules med tast **M** hvis man vil se sidene uten den.
 
 ---
 
